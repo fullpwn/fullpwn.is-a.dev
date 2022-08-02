@@ -256,8 +256,7 @@ input {
 
                 function clearMessages() {
                     message.innerHTML = "";
-                    conn.send("Note: Recipient cleared chat logs.");
-                    addMessage("Note: You cleared chat logs.");
+                    conn.send("[Client] Recipient cleared chat logs.");
                     console.clear();
                 }
 
