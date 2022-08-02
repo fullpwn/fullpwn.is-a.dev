@@ -8,6 +8,11 @@
     <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <script>
         var peer = new Peer();
+        peer.on('connection', function(conn) {
+        conn.on('data', function(data){
+            console.log(data);
+  });
+});
     </script>
 </head>
 <body>

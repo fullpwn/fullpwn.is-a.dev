@@ -7,16 +7,23 @@
     <title>Document</title>
     <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <script>
-        var peer = new Peer();
-        peer.on('connection', function(conn) {
-        conn.on('data', function(data){
-            // Will print 'hi!'
-        console.log(data);
-  });
+
+
+
+function connect_id() {
+    var ids = document.getElementById("ids").value;
+    var conn = peer.connect(ids);
+    conn.on('open', function(){
+        conn.send('Connected');
 });
+}
+
+
     </script>
 </head>
 <body>
-    
+    Text: <input type="text" id="ids">
+
+<button onclick="connect_id()">test</button>
 </body>
 </html>
