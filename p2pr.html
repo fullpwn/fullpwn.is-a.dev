@@ -8,6 +8,8 @@
     <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <script>
 var peer = new Peer();
+var p2p_id = document.getElementById("ids")
+p2p_id.innerHTML = peer.id
         peer.on('connection', function(conn) {
         conn.on('data', function(data){
             var text_msg = document.getElementById("msg")
@@ -17,6 +19,7 @@ var peer = new Peer();
     </script>
 </head>
 <body>
+    <p id="ids"></p>
     Latest Message: <p id="msg">Waiting Message..</p>
 </body>
 </html>
