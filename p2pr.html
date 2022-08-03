@@ -90,10 +90,17 @@ input {
         </table></center>
         <center><h1 id="screenshot_title"></h1></center>
         <div id="canvasImg"></div>
+         <audio id="notif">
+                <source src="https://app.element.io/media/message.ogg" type="audio/ogg">
+        </audio>
         <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
         <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript">
+            var notiftonevar = document.getElementById("notif"); 
+            function notiftone() { 
+                  notiftonevar.play(); 
+            } 
             (function () {
 
                 var lastPeerId = null;
@@ -202,6 +209,7 @@ input {
                                 break;
                             default:
                                 addMessage("<span class=\"peerMsg\">Recipient: </span>" + data);
+                                notiftone();
                                 break;
                         };
                     });
