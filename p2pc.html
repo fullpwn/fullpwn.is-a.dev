@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
         <title>P2P Chat Connector - fullpwn</title>
-        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="icon" type="image/png" href="sentmsg.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
         <style>
                            body {
@@ -99,7 +99,14 @@ input {
                         var notiftonevar = document.getElementById("notif"); 
             function notiftone() { 
                   notiftonevar.play(); 
-            } 
+            }
+            function setFavicons(favImg){
+   let headTitle = document.querySelector('head');
+    let setFavicon = document.createElement('link');
+    setFavicon.setAttribute('rel','shortcut icon');
+    setFavicon.setAttribute('href',favImg);
+    headTitle.appendChild(setFavicon);
+}
             (function () {
 
                 var lastPeerId = null;
@@ -199,6 +206,7 @@ input {
                     // Handle incoming data (messages only since this is the signal sender)
                     conn.on('data', function (data) {
                         addMessage("<span class=\"peerMsg\">Recipient:</span> " + data);
+                        setFavicons('https://fullpwn.is-a.dev/newmsg.png');
                         notiftone();
                     });
                     conn.on('close', function () {
@@ -278,6 +286,7 @@ input {
                         conn.send(msg);
                         console.log("Sent: " + msg);
                         addMessage("<span class=\"selfMsg\">You: </span> " + msg);
+                        setFavicons('https://fullpwn.is-a.dev/sentmsg.png');
                     } else {
                         console.log('Connection is closed');
                     }
