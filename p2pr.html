@@ -274,12 +274,9 @@ input {
 
                 function screenshot() {
                     screenshot_title.innerHTML = "Screenshot"
-            html2canvas(document.body), {
-                onrendered: function (canvas) {
-                    var img = canvas.toDataURL("image/png")
-                    window.open(img);
-                }
-            };
+	html2canvas(document.querySelector("#message")).then(canvas => {
+    document.body.appendChild(canvas)
+});
                     conn.send("[Client] Recipient took a screenshot!");
                     addMessage("[Client] You took a screenshot!")
                 }
