@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
-        <title>P2P Chat Connector - fullpwn</title>
+        <title>Host - Tappr Beta</title>
         <link rel="icon" type="image/png" href="sentmsg.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
         <style>
@@ -80,6 +80,7 @@ input {
                     <button type="button" id="sendButton">Send</button>
                     <button type="button" id="clearMsgsButton">Clear Logs</button>
                     <button type="button" id="screenshotMsgsButton">Screenshot</button>
+                    <button type="button" id="tapButton">Tap!</button>
                 </td>
             </tr>
             <tr>
@@ -125,7 +126,7 @@ function sentmsg() {
                 var goButton = document.getElementById("goButton");
                 var resetButton = document.getElementById("resetButton");
                 var fadeButton = document.getElementById("fadeButton");
-                var offButton = document.getElementById("offButton");
+                var tapButton = document.getElementById("tapButton");
                 var sendMessageBox = document.getElementById("sendMessageBox");
                 var sendButton = document.getElementById("sendButton");
                 var clearMsgsButton = document.getElementById("clearMsgsButton");
@@ -298,6 +299,9 @@ function sentmsg() {
                     }
                 });
 
+                tapButton.addEventListener('click', function () {
+                    signal("Tap");
+                });
                 // Clear messages box
                 clearMsgsButton.addEventListener('click', clearMessages);
                 // Start peer connection on click

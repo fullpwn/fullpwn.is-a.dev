@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width">
-        <title>P2P Chat Receiver - fullpwn</title>
+        <title>Join - Tappr Beta</title>
         <link rel="icon" type="image/png" href="sentmsg.png" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans">
         
@@ -203,24 +203,12 @@ function sentmsg() {
                  */
                 function ready() {
                     conn.on('data', function (data) {
-                        console.log("Data recieved");
-                        var cueString = "<span class=\"cueMsg\">Cue: </span>";
+                        console.log("Got Data!");
+                        var tapprString = "<span class=\"tapprMsg\">Tappr: </span>";
                         switch (data) {
-                            case 'Go':
-                                go();
-                                addMessage(cueString + data);
-                                break;
-                            case 'Fade':
-                                fade();
-                                addMessage(cueString + data);
-                                break;
-                            case 'Off':
-                                off();
-                                addMessage(cueString + data);
-                                break;
-                            case 'Reset':
-                                reset();
-                                addMessage(cueString + data);
+                            case 'Tap':
+                                addMessage(tapprString + "You received a tap!");
+                                tap();
                                 break;
                             default:
                                 addMessage("<span class=\"peerMsg\">Recipient: </span>" + data);
@@ -235,35 +223,8 @@ function sentmsg() {
                     });
                 }
 
-                function go() {
-                    standbyBox.className = "display-box hidden";
-                    goBox.className = "display-box go";
-                    fadeBox.className = "display-box hidden";
-                    offBox.className = "display-box hidden";
-                    return;
-                };
-
-                function fade() {
-                    standbyBox.className = "display-box hidden";
-                    goBox.className = "display-box hidden";
-                    fadeBox.className = "display-box fade";
-                    offBox.className = "display-box hidden";
-                    return;
-                };
-
-                function off() {
-                    standbyBox.className = "display-box hidden";
-                    goBox.className = "display-box hidden";
-                    fadeBox.className = "display-box hidden";
-                    offBox.className = "display-box off";
-                    return;
-                }
-
-                function reset() {
-                    standbyBox.className = "display-box standby";
-                    goBox.className = "display-box hidden";
-                    fadeBox.className = "display-box hidden";
-                    offBox.className = "display-box hidden";
+                function tap() {
+                    notiftone.play();
                     return;
                 };
 
