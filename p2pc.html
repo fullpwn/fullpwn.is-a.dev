@@ -131,7 +131,7 @@ function sentmsg() {
                 var sendButton = document.getElementById("sendButton");
                 var clearMsgsButton = document.getElementById("clearMsgsButton");
                 var connectButton = document.getElementById("connect-button");
-                var cueString = "<span class=\"cueMsg\">Cue: </span>";
+                var tapprString = "<span class=\"tapprMsg\">Tappr: </span>";
                 var screenshotMsgsButton = document.getElementById("screenshotMsgsButton");
                 var screenshot_title = document.getElementById("screenshot_title")
 
@@ -298,6 +298,16 @@ function sentmsg() {
                         console.log('Connection is closed');
                     }
                 });
+
+                function signal(sigName) {
+                    if (conn && conn.open) {
+                        conn.send(sigName);
+                        console.log(sigName + " signal sent");
+                        addMessage(tapprString + sigName);
+                    } else {
+                        console.log('Connection is closed');
+                    }
+                }
 
                 tapButton.addEventListener('click', function () {
                     signal("Tap");
