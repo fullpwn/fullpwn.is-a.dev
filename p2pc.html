@@ -214,7 +214,6 @@ function sentmsg() {
                     conn.on('data', function (data) {
                         addMessage("<span class=\"peerMsg\">Recipient:</span> " + data);
                         newmsg();
-                        notiftone();
                     });
                     conn.on('close', function () {
                         status.innerHTML = "Connection closed";
