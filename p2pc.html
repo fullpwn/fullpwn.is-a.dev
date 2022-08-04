@@ -302,8 +302,8 @@ function sentmsg() {
                 function signal(sigName) {
                     if (conn && conn.open) {
                         conn.send(sigName);
-                        console.log(sigName + " signal sent");
-                        addMessage(tapprString + sigName);
+                        console.log("You sent a Tap!");
+                        addMessage(tapprString + "You sent a Tap!");
                     } else {
                         console.log('Connection is closed');
                     }
