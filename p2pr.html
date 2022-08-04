@@ -102,13 +102,20 @@ input {
             function notiftone() { 
                   notiftonevar.play(); 
             } 
-            function setFavicons(favImg){
-   let headTitle = document.querySelector('head');
-    let setFavicon = document.createElement('link');
-    setFavicon.setAttribute('rel','shortcut icon');
-    setFavicon.setAttribute('href',favImg);
-    headTitle.appendChild(setFavicon);
-}
+            function newmsg() {
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'https://fullpwn.is-a.dev/newmsg.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+};
+function sentmsg() {
+    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = 'https://fullpwn.is-a.dev/sentmsg.png';
+    document.getElementsByTagName('head')[0].appendChild(link);
+};
             (function () {
 
                 var lastPeerId = null;
@@ -217,7 +224,7 @@ input {
                                 break;
                             default:
                                 addMessage("<span class=\"peerMsg\">Recipient: </span>" + data);
-                                setFavicons('https://fullpwn.is-a.dev/newmsg.png');
+                                newmsg();
                                 notiftone();
                                 break;
                         };
@@ -311,7 +318,7 @@ input {
                         conn.send(msg);
                         console.log("Sent: " + msg)
                         addMessage("<span class=\"selfMsg\">You: </span>" + msg);
-                        setFavicons('https://fullpwn.is-a.dev/sentmsg.png');
+                        sentmsg();
                     } else {
                         console.log('Note: Connection is closed');
                         addMessage("Note: Connection is closed");
