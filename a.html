@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta property="og:site_name" content="Snapchat" />
+    <meta property="og:title" content="The Fastest Way to Share a Moment!" />
+    <!-- The following are optional -->
+    <meta
+      property="snapchat:sticker"
+      content="https://kit.snapchat.com/ckweb/test/image.png"
+    />
+  </head>
+
+  <body>
+    <!-- See following sections for more information on parameters -->
+    <div
+      class="snapchat-creative-kit-share"
+      data-theme="dark"
+      data-size="large"
+      data-text="false"
+      data-share-url="https://kit.snapchat.com/"
+    ></div>
+
+    <script>
+      // Load the SDK asynchronously
+      (function (d, s, id) {
+        var js,
+          sjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://sdk.snapkit.com/js/v1/create.js";
+        sjs.parentNode.insertBefore(js, sjs);
+      })(document, "script", "snapkit-creative-kit-sdk");
+    </script>
+  </body>
+</html>
