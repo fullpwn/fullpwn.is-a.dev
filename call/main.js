@@ -59,7 +59,7 @@ async function callUser() {
           console.log("Failed to get local stream:", err);
         });
     });
-  });
+
   function endCall() {
     // Go back to the menu
     document.querySelector("#menu").style.display = "block";
