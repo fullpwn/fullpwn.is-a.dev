@@ -58,7 +58,7 @@ async function callUser() {
         .catch((err) => {
           console.log("Failed to get local stream:", err);
         });
-    }
+    });
   });
   function endCall() {
     // Go back to the menu
