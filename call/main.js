@@ -35,7 +35,6 @@ async function callUser() {
     currentCall = call;
   }
   peer.on("call", (call) => {
-    if (confirm(`Accept call from ${call.peer}?`)) {
       // grab the camera and mic
       navigator.mediaDevices
         .getUserMedia({ video: true, audio: true })
@@ -59,9 +58,6 @@ async function callUser() {
         .catch((err) => {
           console.log("Failed to get local stream:", err);
         });
-    } else {
-      // user rejected the call, close it
-      call.close();
     }
   });
   function endCall() {
