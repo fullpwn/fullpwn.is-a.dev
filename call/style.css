@@ -4,8 +4,9 @@ html{
 input {
   outline: 0;
   border-width: 0 0 2px;
-  border-color: black;
-  color: none;
+  border-color: grey;
+  background-color: transparent;
+  text-align: center;
 }
 #live {
   position: absolute;
