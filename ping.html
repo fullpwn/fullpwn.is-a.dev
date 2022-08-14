@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="timep"><b id="avg_ping"></b></h1> 
+<div id="p_list"></div>
+    <script>
+        var intervalTime = null;
+
+function ping(x) {
+    console.log("start ping test");
+    var s = Number(x); //Get number of times to run
+    var ping_avg = Number(); //sets start int
+    var c = Number(1); //sets counter
+    //console.log(c, ping_avg, s);
+    intervalTime = setInterval(function () {
+        var start = new Date().getTime(); //gets time of star
+        $.ajax({
+            url: "https://www.google.com",
+            cache: false,
+            global: false,
+            crossDomain: true,
+    				dataType: 'jsonp'
+        }).always(function () {
+            msec = new Date().getTime() - start; //sets lenght of time in millinsecond
+            ping_avg = Number(msec) + ping_avg; //add's all up to get average
+            $("<i>").text(c + ":ping: " + msec + "ms").appendTo("#p_list"); // shows ping list
+            $("<br>").appendTo("#p_list");
+            var pingms = ping_avg / c; //averages ping
+            pingms = pingms.toFixed(2); //rounds off
+            $("#avg_ping").html("Ping: " + pingms + "ms / " + c); //shows ping
+            console.log("Count: " + c + " | Current: " + msec + " | Average: " + pingms + "ms");
+            console.log("count" + c);
+            if (c == s) {
+                clearInterval(this);
+            } else {
+                c = c + 1;
+            }
+        });
+    }, 1000);
+    return true;
+}
+ping(999999);
+    </script>
+</body>
+</html>
