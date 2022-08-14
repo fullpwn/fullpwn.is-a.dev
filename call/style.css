@@ -17,7 +17,7 @@
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     margin: 16px;
-    border: 2px solid #fff;
+    border: none;
     border-radius: 5px;
   }
   #remote-video {
