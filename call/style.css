@@ -31,10 +31,10 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    padding: 8px;
+    padding: 10px 20px;
     background-color: red;
     color: white;
     border: none;
     margin: 16px;
-    border-radius: 5px;
+    font-size: 20px;
   }
