@@ -90,7 +90,6 @@ async function callUser() {
     });
   function endCall() {
     peer.destroy();
-    // Go back to the menu
     document.querySelector("#menu").style.display = "block";
     document.querySelector("#live").style.display = "none";
     
