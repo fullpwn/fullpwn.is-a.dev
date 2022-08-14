@@ -73,3 +73,6 @@ input {
   transform: translateX(-50%) translateY(-50%);
   font-size: 175%;
 }
+.no_select {
+  user-select: none;
+}
