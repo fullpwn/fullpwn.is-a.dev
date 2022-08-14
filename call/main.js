@@ -3,11 +3,6 @@ var currentCall;
 peer.on("open", function (id) {
   document.getElementById("uuid").textContent = id;
 });
-function ss() {
-  html2canvas(document.querySelector("#live")).then(canvas => {
-    document.body.appendChild(canvas)
-});
-}
 async function callUser() {
     // get the id entered by the user
     const peerId = document.querySelector("input").value;
