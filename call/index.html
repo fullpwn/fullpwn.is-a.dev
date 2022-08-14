@@ -10,9 +10,21 @@
     <meta name="mobile-web-app-capable" content="yes">
     <script>
       function ss() {
-  html2canvas(document.querySelector("#live")).then(canvas => {
-    document.body.appendChild(canvas)
-});
+        const captureElement = document.querySelector('#remote-video')
+  html2canvas(captureElement)
+    .then(canvas => {
+      canvas.style.display = 'none'
+      document.body.appendChild(canvas)
+      return canvas
+    })
+    .then(canvas => {
+      const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+      const a = document.createElement('a')
+      a.setAttribute('download', 'tappr-screenshot.png')
+      a.setAttribute('href', image)
+      a.click()
+      canvas.remove()
+    })
 }
 </script>
   </head>
@@ -29,7 +41,8 @@
       <div id="live">
         <video id="remote-video"></video>
         <video id="local-video" muted="true"></video>
-        <button id="end-call" onclick="endCall()">Hangup</button>
+        <button id="screenshot" onclick="ss();">Screenshot</button>
+        <button id="end-call" onclick="endCall();">Hangup</button>
       </div>
 <script src="main.js"></script>
   </body>

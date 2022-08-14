@@ -7,6 +7,25 @@
     <script src="https://unpkg.com/peerjs@1.4.5/dist/peerjs.min.js"></script>
     <link rel="stylesheet" href="style.css" />
     <meta name="mobile-web-app-capable" content="yes">
+    <script>
+      function ss() {
+        const captureElement = document.querySelector('#remote-video')
+  html2canvas(captureElement)
+    .then(canvas => {
+      canvas.style.display = 'none'
+      document.body.appendChild(canvas)
+      return canvas
+    })
+    .then(canvas => {
+      const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+      const a = document.createElement('a')
+      a.setAttribute('download', 'tappr-screenshot.png')
+      a.setAttribute('href', image)
+      a.click()
+      canvas.remove()
+    })
+}
+</script>
   </head>
 <body>
     <div id="menu">
@@ -18,6 +37,7 @@
       <div id="live">
         <video id="remote-video"></video>
         <video id="local-video" muted="true"></video>
+        <button id="screenshot" onclick="ss();">Screenshot</button>
         <button id="end-call" onclick="endCall()">Hangup</button>
       </div>
 <script src="main2.js"></script>
