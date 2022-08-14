@@ -84,9 +84,11 @@ async function callUser() {
     currentCall = undefined;
   });
   function endCall() {
+    dataConnection.close();
     // Go back to the menu
     document.querySelector("#menu").style.display = "block";
     document.querySelector("#live").style.display = "none";
+    
   // If there is no current call, return
     if (!currentCall) return;
   // Close the call, and reset the function
