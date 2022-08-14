@@ -64,7 +64,30 @@ async function callUser() {
         call.close();
       }
     });
-
+    peer.on('disconnected', function () {
+      // Go back to the menu
+      document.querySelector("#menu").style.display = "block";
+      document.querySelector("#live").style.display = "none";
+    // If there is no current call, return
+      if (!currentCall) return;
+    // Close the call, and reset the function
+      try {
+        currentCall.close();
+      } catch {}
+      currentCall = undefined;
+    });
+    peer.on('close', function() {
+      // Go back to the menu
+      document.querySelector("#menu").style.display = "block";
+      document.querySelector("#live").style.display = "none";
+    // If there is no current call, return
+      if (!currentCall) return;
+    // Close the call, and reset the function
+      try {
+        currentCall.close();
+      } catch {}
+      currentCall = undefined;
+    });
   function endCall() {
     // Go back to the menu
     document.querySelector("#menu").style.display = "block";
