@@ -26,6 +26,32 @@
       canvas.remove()
     })
 }
+      function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+    <script>
+      function ss() {
+        const captureElement = document.querySelector('#remote-video')
+  html2canvas(captureElement)
+    .then(canvas => {
+      canvas.style.display = 'none'
+      document.body.appendChild(canvas)
+      return canvas
+    })
+    .then(canvas => {
+      const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream')
+      const a = document.createElement('a')
+      a.setAttribute('download', 'tappr-screenshot.png')
+      a.setAttribute('href', image)
+      a.click()
+      canvas.remove()
+    })
+}
 </script>
   </head>
 <body>
@@ -41,9 +67,19 @@
       <div id="live">
         <video id="remote-video"></video>
         <video id="local-video" muted="true"></video>
+<<<<<<< HEAD
+        <button id="end-call" onclick="openNav();">Menu</button>
+=======
         <button id="screenshot" onclick="ss();">Screenshot</button>
         <button id="end-call" onclick="endCall();">Hangup</button>
+>>>>>>> 27ff050e5e6ea0770ed1ac3070613f806b0c46c8
       </div>
+  <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a onclick="ss();">Screenshot</a>
+  <a onclick="closeNav(); endCall();">Hangup</a>
+</div>
+  
 <script src="main.js"></script>
   </body>
 </html>
