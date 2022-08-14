@@ -1,57 +1,58 @@
 #live {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    display: none;
-  }
-  #local-video {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 250px;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    margin: 16px;
-    border: none;
-    border-radius: 5px;
-  }
-  #remote-video {
-    position: absolute;
-    max-width: 100%;
-    height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  #end-call {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    margin: 16px;
-    font-size: 20px;
-    border-radius: 5px;
-    -webkit-appearance: none;
-  }
-  #start-call {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 10px 20px;
-    background-color: lightseagreen;
-    color: white;
-    border: none;
-    margin: 16px;
-    font-size: 20px;
-    border-radius: 5px;
-    -webkit-appearance: none;
-  }
-  
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: none;
+}
+#local-video {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  margin: 16px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.49);
+}
+#remote-video {
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#end-call {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  margin: 16px;
+  font-size: 20px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#start-call {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: lightseagreen;
+  color: white;
+  border: none;
+  margin: 16px;
+  font-size: 20px;
+  border-radius: 5px;
+  -webkit-appearance: none;
+}
