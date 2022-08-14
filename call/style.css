@@ -44,7 +44,7 @@ input {
   bottom: 0;
   right: 0;
   padding: 10px 20px;
-  background-color: red;
+  background-color: #FF3131;
   color: white;
   border: none;
   margin: 16px;
@@ -58,13 +58,12 @@ input {
   bottom: 0;
   right: 0;
   padding: 10px 20px;
-  background-color: lightseagreen;
-  color: white;
+  background-color: #50C878;
   border: none;
   margin: 16px;
   font-size: 20px;
   border-radius: 5px;
-  -webkit-appearance: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .home {
   text-align: center;
