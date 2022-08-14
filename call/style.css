@@ -38,3 +38,15 @@
     margin: 16px;
     font-size: 20px;
   }
+
+  #start-call {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    margin: 16px;
+    font-size: 20px;
+  }
