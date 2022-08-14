@@ -89,7 +89,7 @@ async function callUser() {
       currentCall = undefined;
     });
   function endCall() {
-    dataConnection.close();
+    peer.destroy();
     // Go back to the menu
     document.querySelector("#menu").style.display = "block";
     document.querySelector("#live").style.display = "none";
