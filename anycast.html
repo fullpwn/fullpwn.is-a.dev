@@ -87,33 +87,13 @@
 
 <body>
   <div id="wrapper">
-    <h1>URL Cast Receiver</h1>
+    <h1>anycast</h1>
 
-    <p id="step1">Step 1:</p>
-    <button id="requestSession">Start cast session</button>
-
-    <p id="step2" class="notready">Step 2: Send url</p>
+    <button id="requestSession">Start anycast</button>
 
     <input id="url" class="border" type="text" placeholder="e.g. http://example.com" size="30" value="https://www.google.com/" disabled/>
-    <select id="type" disabled>
-      <option value="loc">location</option>
-    </select>
-    <button id="send" disabled>send</button>
+    <button id="send" disabled>Send to anycast</button>
 
-    <h3>Details</h3>
-    <p>
-      There are two methods for casting, with pros and cons:
-
-      <ol>
-        <li>Load an iframe (You will have trouble loading a url with x-frame-options: same origin.)</li>
-        <li>Change the window location (You will lose control when you load the url over the receiver.)</li>
-      </ol>
-
-      Also, notice the chromecast viewport is 1280x720 and the default background is black before the receiver loads.
-    </p>
-
-    <p><a href="#">&laquo; GitHub</a></p>
-  </div>
 
   <div id="notifications"></div>
 
@@ -131,7 +111,7 @@
 
       if (!url || !type) return;
 
-      sendMessage({type: type, url: url});
+      sendMessage({type: "loc", url: url});
     };
 
     var applicationID = '5CB45E5A'
